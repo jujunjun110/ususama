@@ -31,7 +31,7 @@ while(True):
         # history の全てのステータスが、現在保存されているステータスと異なっていたらSlackステータスを変更
         if all(x != room['status'] for x in room['history']):
             should_change_status = True
-            room['status'] = 1 - room1['status']
+            room['status'] = 1 - room['status']
 
     if should_change_status:
         Slack.post_status(bool(room1['status']), bool(room2['status']))
