@@ -6,6 +6,6 @@
 # ファイル構成
 - main.py
   - センサーの値を定期的に感知し、必要があれば slack.py のメソッドを叩く
-  - その際の引数は [{個室1の空き状況: bool},{個室2の空き状況: bool}] という配列
+  - その際の引数は room1_status(bool), room2_status(bool) という2つのbool値
 - slack.py
   - main.py から呼び出され、対象のアカウントのSlackステータスを書き換える
