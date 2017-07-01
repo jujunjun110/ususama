@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # coding: utf-8
 
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 from slack import Slack
 Slack = Slack()
@@ -28,6 +28,6 @@ while(True):
             room['status'] = 1 - room1['status']
 
     if need_change_status:
-        Slack.post_status(bool(room1['status']), bool(room2['status']))
+        Slack.postStatus(bool(room1['status']), bool(room2['status']))
 
 GPIO.cleanup()
