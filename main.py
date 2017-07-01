@@ -6,6 +6,8 @@ import time
 from slack import Slack
 Slack = Slack()
 
+# room['status']は現在Slack上で表示されているはずの状態
+# room['history']は過去10回分のセンサーの取得値を格納する配列
 room1 = {'pin': 18, 'status': 0, 'history': [0] * 10}
 room2 = {'pin': 27, 'status': 0, 'history': [0] * 10}
 loop_duration = 1
@@ -16,18 +18,20 @@ GPIO.setup(room2['pin'], GPIO.IN)
 
 while(True):
     time.sleep(loop_duration)
-    need_change_status = False
+    should_change_status = False
 
     for room in [room1, room2]:
-        print room['history']
-        room['history'].pop(0)
+        # 近接センサーの取得値は、0(近接あり) と 1（近接なし）の2値
         room['history'].append(GPIO.input(room['pin']))
+        room['history'].pop(0)
+        print room['history']
 
+        # history の全てのステータスが、現在保存されているステータスと逆だったらSlackステータスを変更
         if all(x != room['status'] for x in room['history']):
-            need_change_status = True
+            should_change_status = True
             room['status'] = 1 - room1['status']
 
-    if need_change_status:
+    if should_change_status:
         Slack.post_status(bool(room1['status']), bool(room2['status']))
 
 GPIO.cleanup()
