@@ -1,7 +1,10 @@
 # coding: utf-8
 import requests
+import yaml
 
-token = 'sample'
+token_path = './token-file.yml'
+token_file = open(token_path)
+token = yaml.load(token_file)['token']
 
 class Slack:
     def postStatus(self, room1, room2):
