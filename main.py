@@ -28,6 +28,6 @@ while(True):
             room['status'] = 1 - room1['status']
 
     if need_change_status:
-        Slack.postStatus(bool(room1['status']), bool(room2['status']))
+        Slack.post_status(bool(room1['status']), bool(room2['status']))
 
 GPIO.cleanup()
