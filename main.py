@@ -20,13 +20,9 @@ while(True):
         room['history'].pop(0)
         room['history'].append(GPIO.input(room['pin']))
 
-        if all(x == 0 for x in room['history']) and room['status'] = 0:
+        if all(x != room['status'] for x in room['history']):
             needChangeStatus = True
-            room['status'] = 0
-
-        if all(x == 1 for x in room['history']) and room['status'] = 1:
-            needChangeStatus = True
-            room['status'] = 1
+            room['status'] = 1 - room1['status']
 
     if needChangeStatus:
         # Slack.send(room1['status'], room2['status'])
