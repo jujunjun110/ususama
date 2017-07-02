@@ -18,6 +18,10 @@
 - [近接センサー](https://www.pololu.com/product/2579)
 - [Wifiドングル](https://www.amazon.co.jp/dp/B004AP8QKM)
 
+## 機器の配置のイメージ
+![機器の配置](https://user-images.githubusercontent.com/4201520/27769599-2bf55c72-5f68-11e7-9ef1-6f3e16c9fe3b.png)
+
+
 ## プライバシーについて
 このプロジェクトで利用しているセンサーは**近接センサー**といい、「センサーから一定の距離に物があるかないか」を測定するもので、これによってドアの開閉を個室の空き状況として利用しています。
 
