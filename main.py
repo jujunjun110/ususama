@@ -14,6 +14,7 @@ room2 = {'pin': 27, 'status': 0, 'history': [0] * 10}
 loop_duration = 1
 Slack = Slack()
 
+# GPIO（ラズパイの汎用IOピンの初期化）
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(room1['pin'], GPIO.IN)
 GPIO.setup(room2['pin'], GPIO.IN)
