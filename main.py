@@ -25,8 +25,8 @@ while(True):
 
     for room in [room1, room2]:
         # 近接センサーの取得値は、0(近接あり) と 1（近接なし）の2値
-        room['history'].append(GPIO.input(room['pin']))  # 最新の値を末尾に追加
-        room['history'].pop(0)  # 一番古い履歴を削除
+        room['history'].append(GPIO.input(room['pin'])) 
+        room['history'].pop(0)
         print room['history']
 
         # history の全てのステータスが、現在保存されているステータスと異なっていたらSlackステータスを更新

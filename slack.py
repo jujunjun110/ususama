@@ -22,6 +22,7 @@ class Slack:
         if room1 and room2:
             return ":o:"
         if room1 or room2:
-            return ":warning:"
+            return ":o:" # temporarily change for 1 room mode
+            # return ":warning:"
         if not room1 and not room2:
             return ":x:"
