@@ -8,8 +8,8 @@ from slack import Slack
 # room['pin'] → raspberry pi 上で利用するピン番号
 # room['status'] → 現在の部屋のステータス(0: 利用不可能, 1: 利用可能)
 # room['history'] → 過去10回分のセンサーの取得値を格納する配列
-room1 = {'pin': 18, 'status': 0, 'history': [0] * 10}
-room2 = {'pin': 27, 'status': 0, 'history': [0] * 10}
+room1 = {'pin': 18, 'status': 0, 'history': [0] * 7}
+room2 = {'pin': 27, 'status': 0, 'history': [0] * 7}
 
 loop_duration = 1
 slack = Slack()
