@@ -3,6 +3,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import logging
 from slack import Slack
 
 # room['pin'] → raspberry pi 上で利用するピン番号
@@ -13,6 +14,19 @@ room2 = {'pin': 27, 'status': 0, 'history': [0] * 7}
 
 loop_duration = 1
 slack = Slack()
+
+logger = logging.getLogger('logger')
+logger.setLevel(logging.DEBUG)
+
+streamHandler = logging.StreamHandler()
+streamHandler.setFormatter(logging.Formatter('%(asctime)s %(levelname)8s %(message)s'))
+
+fileHandler = logging.FileHandler(filename='log/log.txt')
+fileHandler.setLevel(logging.INFO)
+fileHandler.setFormatter(logging.Formatter('%(asctime)s %(levelname)8s %(message)s'))
+
+logger.addHandler(streamHandler)
+logger.addHandler(fileHandler)
 
 # GPIO（ラズパイの汎用IOピンの初期化）
 GPIO.setmode(GPIO.BCM)
@@ -27,7 +41,7 @@ while(True):
         # 近接センサーの取得値は、0(近接あり) と 1（近接なし）の2値
         room['history'].append(GPIO.input(room['pin'])) 
         room['history'].pop(0)
-        print room['history']
+	logger.debug(room['history'])
 
         # history の全てのステータスが、現在保存されているステータスと異なっていたらSlackステータスを更新
         if all(status != room['status'] for status in room['history']):
@@ -36,5 +50,6 @@ while(True):
 
     if should_change_status:
         slack.post_status(bool(room1['status']), bool(room2['status']))
+	logger.info([bool(room1['status']), bool(room2['status'])])
 
 GPIO.cleanup()

@@ -1,10 +1,12 @@
 # coding: utf-8
 import requests
 import yaml
+import logging
 
 token_path = './token-file.yml'
 token_file = open(token_path)
 token = yaml.load(token_file)['token']
+logger = logging.getLogger('logger.main')
 
 class Slack:
     def post_status(self, room1, room2):
@@ -16,7 +18,7 @@ class Slack:
             'profile': profile
         })
 
-        print response.json()
+	logger.debug(response.json())
 
     def decide_status(self, room1, room2):
         if room1 and room2:
