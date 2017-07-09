@@ -7,9 +7,7 @@
 
 トイレ個室の空き状況を確認できるようにする、マルチメディア研究サークルの1プロジェクトです。
 
-主担当は[伊藤](https://github.com/jujunjun110)と[いっちー](https://github.com/icchii0618)です。
-
-ご意見・ご感想・ご要望などは、Slackの #toilet チャンネルまでお寄せ下さい。
+主担当は[伊藤](https://github.com/jujunjun110)と[いっちー](https://github.com/icchii0618)です。ご意見・ご感想・ご要望などは、Slackの #toilet チャンネルまでお寄せ下さい。
 
 ## 問題意識
 
@@ -30,18 +28,17 @@
 
 ↑これ。（**StarするとSlackサイドバーの上部に固定できて便利**！）
 
-それぞれの絵文字が以下のことを意味します。
+それぞれの絵文字が以下の状態を意味します。
 
 - ⭕ ... 個室2つとも空室
 - ⚠️ ... 個室1つのみ空室
 - ❌ ... どちらも満室
 
-## 使っている機器
+## 使っている機器と配置
 - [Raspberry Pi](https://ja.wikipedia.org/wiki/Raspberry_Pi)
 - [近接センサー](https://www.pololu.com/product/2579)
 - [Wifiドングル](https://www.amazon.co.jp/dp/B004AP8QKM)
 
-## 機器の配置のイメージ
 ![機器の配置](https://user-images.githubusercontent.com/4201520/27769599-2bf55c72-5f68-11e7-9ef1-6f3e16c9fe3b.png)
 
 ## 処理の流れ
