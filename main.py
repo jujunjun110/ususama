@@ -43,7 +43,7 @@ while(True):
         # 近接センサーの取得値は、0(近接あり) と 1（近接なし）の2値
         room['history'].append(GPIO.input(room['pin'])) 
         room['history'].pop(0)
-	logger.debug(room['history'])
+        logger.debug(room['history'])
 
         # history の全てのステータスが、現在保存されているステータスと異なっていたらSlackステータスを更新
         if all(status != room['status'] for status in room['history']):
@@ -51,7 +51,7 @@ while(True):
             room['status'] = room['history'][0]
 
     if should_change_status:
-	logger.info([bool(room1['status']), bool(room2['status'])])
+        logger.info([bool(room1['status']), bool(room2['status'])])
         slack.post_status(bool(room1['status']), bool(room2['status']))
 
 GPIO.cleanup()
