@@ -17,12 +17,21 @@ class Slack:
         message = 'Last Update: %s' % datetime.now().strftime('%H:%M')
 
         profile = '{"status_emoji": "%s", "status_text": "%s"}' % (emoji, message)
-        response = requests.post('https://slack.com/api/users.profile.set', params={
-            'token': token,
-            'profile': profile
-        })
 
-        logger.debug(response.json())
+        try:
+            response = requests.post('https://slack.com/api/users.profile.set', params={
+                'token': token,
+                'profile': profile
+            })
+            return True
+
+        except requests.exceptions.Timeout:
+            logger.debug('Request Timeout.')
+            return False
+
+        except requests.exceptions.RequestException as e:
+            logger.debug(e)
+            return False
 
     def decide_status(self, room1, room2):
         if room1 and room2:
