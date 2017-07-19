@@ -8,11 +8,12 @@ from slack import Slack
 
 # room['pin'] → raspberry pi 上で利用するピン番号
 # room['status'] → 現在の部屋のステータス(0: 利用不可能, 1: 利用可能)
-# room['history'] → 過去10回分のセンサーの取得値を格納する配列
+# room['history'] → 過去7回分のセンサーの取得値を格納する配列
 room1 = {'pin': 18, 'status': 0, 'history': [0] * 7}
 room2 = {'pin': 27, 'status': 0, 'history': [0] * 7}
 
 loop_duration = 1
+post_success = True
 slack = Slack()
 
 logger = logging.getLogger('logger')
@@ -50,8 +51,15 @@ while(True):
             should_change_status = True
             room['status'] = room['history'][0]
 
-    if should_change_status:
+    if should_change_status or not post_success:
         logger.info([bool(room1['status']), bool(room2['status'])])
-        slack.post_status(bool(room1['status']), bool(room2['status']))
+
+        for i in range(6):  # 送信は6回までリトライ
+            post_success = slack.post_status(bool(room1['status']), bool(room2['status']))
+
+            if post_success:
+                break
+
+            time.sleep(10)  # 待機
 
 GPIO.cleanup()
