@@ -16,7 +16,7 @@ loop_duration = 1
 slack = Slack()
 
 logger = logging.getLogger('logger')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 streamHandler = logging.StreamHandler()
 streamHandler.setFormatter(logging.Formatter('%(asctime)s %(levelname)8s %(message)s'))
@@ -32,6 +32,8 @@ logger.addHandler(fileHandler)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(room1['pin'], GPIO.IN)
 GPIO.setup(room2['pin'], GPIO.IN)
+
+logger.info('LOOP START')
 
 while(True):
     time.sleep(loop_duration)
@@ -49,7 +51,7 @@ while(True):
             room['status'] = room['history'][0]
 
     if should_change_status:
-        slack.post_status(bool(room1['status']), bool(room2['status']))
 	logger.info([bool(room1['status']), bool(room2['status'])])
+        slack.post_status(bool(room1['status']), bool(room2['status']))
 
 GPIO.cleanup()
