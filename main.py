@@ -60,6 +60,7 @@ while(True):
             if post_success:
                 break
 
+            logger.info('Post Failure.')
             time.sleep(10)  # 待機
 
 GPIO.cleanup()
