@@ -11,8 +11,8 @@ logger = logging.getLogger('logger.main')
 
 
 class Slack:
-    def post_status(self, room1, room2):
 
+    def post_status(self, room1, room2):
         emoji = self.decide_status(room1, room2)
         message = 'Last Update: %s' % datetime.now().strftime('%H:%M')
 
