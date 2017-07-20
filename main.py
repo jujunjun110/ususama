@@ -17,7 +17,7 @@ post_success = True
 slack = Slack()
 
 logger = logging.getLogger('logger')
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 streamHandler = logging.StreamHandler()
 streamHandler.setFormatter(logging.Formatter('%(asctime)s %(levelname)8s %(message)s'))
