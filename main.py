@@ -50,10 +50,9 @@ while(True):
         if all(status != room['status'] for status in room['history']):
             should_change_status = True
             room['status'] = room['history'][0]
+            logger.info([bool(room1['status']), bool(room2['status'])])
 
     if should_change_status or not post_success:
-        logger.info([bool(room1['status']), bool(room2['status'])])
-
         for i in range(6):  # 送信は6回までリトライ
             post_success = slack.post_status(bool(room1['status']), bool(room2['status']))
 
