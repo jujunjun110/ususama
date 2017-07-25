@@ -4,6 +4,7 @@
 import RPi.GPIO as GPIO
 import time
 import logging
+import os
 from slack import Slack
 
 # room['pin'] → raspberry pi 上で利用するピン番号
@@ -15,6 +16,10 @@ room2 = {'pin': 27, 'status': 0, 'history': [0] * 7}
 loop_duration = 1
 post_success = True
 slack = Slack()
+log_dir = './log'
+
+if not os.path.exists(log_dir):
+    os.mkdir(log_dir)
 
 logger = logging.getLogger('logger')
 logger.setLevel(logging.DEBUG)
@@ -22,7 +27,7 @@ logger.setLevel(logging.DEBUG)
 streamHandler = logging.StreamHandler()
 streamHandler.setFormatter(logging.Formatter('%(asctime)s %(levelname)8s %(message)s'))
 
-fileHandler = logging.FileHandler(filename='log/log.txt')
+fileHandler = logging.FileHandler(filename=log_dir + '/log.txt')
 fileHandler.setLevel(logging.INFO)
 fileHandler.setFormatter(logging.Formatter('%(asctime)s %(levelname)8s %(message)s'))
 
