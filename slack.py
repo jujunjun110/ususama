@@ -4,9 +4,11 @@ import yaml
 import logging
 from datetime import datetime
 
-token_path = './token-file.yml'
-token_file = open(token_path)
-token = yaml.load(token_file)['token']
+settings_path = './config.yml'
+settings_file = open(settings_path)
+settings = yaml.load(settings_file)
+token = settings['token']
+place = settings['place']
 logger = logging.getLogger('logger.main')
 
 
@@ -14,7 +16,7 @@ class Slack:
 
     def post_status(self, room1, room2):
         emoji = self.decide_status(room1, room2)
-        message = 'Last Update: %s' % datetime.now().strftime('%H:%M')
+        message = 'Last Update: %s (%s)' % (datetime.now().strftime('%H:%M'), place)
 
         profile = '{"status_emoji": "%s", "status_text": "%s"}' % (emoji, message)
 
