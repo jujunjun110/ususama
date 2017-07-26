@@ -22,7 +22,7 @@
 
 現在、6F/7Fの男子トイレ個室が確認対象になっています。
 
-個室のドアの開閉状況に応じて@jujunjun110(6F), @icchi-(7F)のSlackステータスが変化するので、トイレに行きたいと思った時に確認して使います。
+個室のドアの開閉状況に応じて、@jujunjun110(6F), @icchi-(7F)のSlackステータスが変化するので、トイレに行きたいと思った時に確認して使います。
 
 ![status](https://user-images.githubusercontent.com/4201520/27992859-a64bce96-64d8-11e7-93ed-f2056b506a9c.png)
 
