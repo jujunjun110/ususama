@@ -27,7 +27,7 @@
 
 ![image](https://user-images.githubusercontent.com/4201520/28655601-e3a37084-72d7-11e7-83eb-cf41fa8821f4.png)
 
-↑これです （StarするとSlackサイドバーの上部に固定できて便利）
+↑これです 
 
 それぞれの絵文字が以下の状態を意味します。
 
@@ -36,6 +36,11 @@
 - ❌ ... **どちらも満室**
 
 ※ マウスオーバーで最終更新時間を確認できます。古い時刻の場合はうまく動いていない可能性が高いので、変だと思ったら実際にトイレに行って目視での確認をお願いします。
+
+また、以下のようにStar機能を使うとSlackサイドバーの上部に固定できて便利です。
+
+![star](https://user-images.githubusercontent.com/4201520/28656647-10642de2-72de-11e7-8c20-3eb38079bf90.png)
+
 
 ## 使っている機器と配置
 - [Raspberry Pi](https://ja.wikipedia.org/wiki/Raspberry_Pi)
