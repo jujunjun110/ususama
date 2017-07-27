@@ -1,7 +1,8 @@
 # Ususama （烏枢沙摩）
 
 ![ususama1](https://user-images.githubusercontent.com/4201520/27992828-da035b2e-64d7-11e7-9a34-98a981637fd6.jpg)
-![ususama3](https://user-images.githubusercontent.com/4201520/27992829-da058160-64d7-11e7-88cb-fe3d57447d8f.jpg)
+![ususama](https://user-images.githubusercontent.com/4201520/28655558-a97f7b0a-72d7-11e7-8171-7ef3dfda2136.png)
+
 
 ## このプロジェクトについて
 
@@ -24,7 +25,7 @@
 
 個室のドアの開閉状況に応じて、@jujunjun110(6F), @icchi-(7F)のSlackステータスが変化するので、トイレに行きたいと思った時に確認して使います。
 
-![status](https://user-images.githubusercontent.com/4201520/27992859-a64bce96-64d8-11e7-93ed-f2056b506a9c.png)
+![image](https://user-images.githubusercontent.com/4201520/28655601-e3a37084-72d7-11e7-83eb-cf41fa8821f4.png)
 
 ↑これです （StarするとSlackサイドバーの上部に固定できて便利）
 
