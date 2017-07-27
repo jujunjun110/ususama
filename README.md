@@ -1,7 +1,7 @@
 # Ususama （烏枢沙摩）
 
 ![ususama1](https://user-images.githubusercontent.com/4201520/27992828-da035b2e-64d7-11e7-9a34-98a981637fd6.jpg)
-![ususama](https://user-images.githubusercontent.com/4201520/28655558-a97f7b0a-72d7-11e7-8171-7ef3dfda2136.png)
+![ususama](https://user-images.githubusercontent.com/4201520/28655644-34ce915a-72d8-11e7-867a-2691270d2607.png)
 
 
 ## このプロジェクトについて
