@@ -1,4 +1,4 @@
-PyYAML==3.12
+PyYAML==5.4
 RPi.GPIO==0.6.3
 argparse==1.2.1
 chardet==2.3.0
